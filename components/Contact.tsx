@@ -2,7 +2,8 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, Code, Link, FileDown } from "lucide-react";
+import { Mail, FileDown } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const contactLinks = [
   {
@@ -12,13 +13,13 @@ const contactLinks = [
     href: "mailto:matinavia.063@gmail.com",
   },
   {
-    icon: Code,
+    icon: FaGithub,
     label: "GitHub",
     value: "github.com/navia20",
     href: "https://github.com/navia20",
   },
   {
-    icon: Link,
+    icon: FaLinkedin,
     label: "LinkedIn",
     value: "linkedin.com/in/matías-navia-barrientos",
     href: "https://linkedin.com/in/matías-navia-barrientos/",
@@ -83,7 +84,7 @@ export default function Contact() {
           className="text-center"
         >
           <a
-            href="/cv.pdf"
+            href="/cv/CV_MNB_2026.pdf"
             download
             className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-lg hover:bg-accent-light transition-colors font-medium"
           >

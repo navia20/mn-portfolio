@@ -20,45 +20,31 @@ export default function About() {
           Sobre <span className="text-accent">Mí</span>
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-full aspect-square max-w-sm mx-auto rounded-2xl bg-section-bg border border-card-border flex items-center justify-center text-6xl font-bold text-accent/20"
-          >
-            MN
-          </motion.div>
-          {/* Para usar tu foto, reemplaza el div de arriba por:
-          <img src="/foto-perfil.jpg" alt="Matías Navia" className="w-full max-w-sm mx-auto rounded-2xl object-cover border border-card-border" />
-          */}
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="space-y-4 text-muted leading-relaxed"
-          >
-            <p>
-              Estudiante de Ingeniería Civil en Computación e Informática en la
-              Universidad Católica del Norte, 23 años. Responsable, honesto y
-              perseverante, con habilidades para la toma de decisiones, el trabajo
-              en equipo y la resolución creativa de problemas.
-            </p>
-            <p>
-              Me caracterizo por mi capacidad de adaptación, flexibilidad y
-              motivación constante por aprender y mejorar en el ámbito académico
-              y profesional. Realicé un intercambio estudiantil en la Universidad
-              de la República Oriental del Uruguay en el segundo semestre de 2025.
-            </p>
-            <p>
-              Apasionado por el desarrollo de software moderno, busco siempre
-              escribir código limpio, escalable y bien documentado. Creo
-              firmemente que la mejor tecnología es la que resuelve problemas
-              reales de manera simple y elegante.
-            </p>
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="space-y-4 text-muted leading-relaxed max-w-3xl mx-auto"
+        >
+          <p>
+            Estudiante de Ingeniería Civil en Computación e Informática en la
+            Universidad Católica del Norte en Coquimbo. Responsable, honesto y
+            perseverante, con habilidades para la toma de decisiones, el trabajo
+            en equipo y la resolución creativa de problemas.
+          </p>
+          <p>
+            Me caracterizo por mi capacidad de adaptación, flexibilidad y
+            motivación constante por aprender y mejorar en el ámbito académico
+            y profesional. Realicé un intercambio estudiantil en la Universidad
+            de la República Oriental del Uruguay en el segundo semestre de 2025.
+          </p>
+          <p>
+            Apasionado por el desarrollo de software moderno, busco siempre
+            escribir código limpio, escalable y bien documentado. Creo
+            firmemente que la mejor tecnología es la que resuelve problemas
+            reales de manera simple y elegante.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

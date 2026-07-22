@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
   { href: "#sobre-mi", label: "Sobre Mí" },
+  { href: "#experiencia", label: "Experiencia" },
   { href: "#educacion", label: "Educación" },
   { href: "#proyectos", label: "Proyectos" },
   { href: "#stack", label: "Stack" },
@@ -43,8 +44,14 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#inicio" className="text-xl font-bold text-accent">
-          MN
+        <a href="#inicio" className="flex items-center">
+          {mounted && (
+            <img
+              src={theme === "dark" ? "/logo/5.png" : "/logo/6.png"}
+              alt="MN"
+              className="h-13 w-auto"
+            />
+          )}
         </a>
 
         <div className="hidden md:flex items-center gap-8">

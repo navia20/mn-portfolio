@@ -1,7 +1,177 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Code, Link, Mail } from "lucide-react";
+import { ArrowDown, Mail } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useState, useEffect } from "react";
+
+const messages = [
+"¡Holaaa, bienvenido a mi portafolio! 👋",
+"¿Te gusta? 😄",
+"Si me preguntas a mí... ¡está genial! ✨",
+"Hola mamita, estoy en una página web 😎",
+"Hey... ¿cuándo se actualizó la base de datos de virus?",
+"Nvm, ya vi... hace 2 días. 😌",
+"¿Y ahora qué hacemos?",
+"Podríamos explorar mis proyectos. 👀",
+"Bueno... también puedes usar el menú de navegación.",
+"Trabajé bastante en él. 😅",
+"Qué chulada, ¿no?",
+"¿Sabías que estudié un semestre en Uruguay? 🇺🇾",
+"Bo, Tán de má la tortas fritas y el chivito, olvidate 😌",
+"Si alguna vez tenés la oportunidad de viajar, hacelo.😎",
+"Mi portafolio está en constante actualización.",
+"Así que si encuentras algo raro...",
+"...probablemente ya lo estoy arreglando. 😂",
+"Ups... creo que rompí algo. 😅",
+"Espera...",
+"Listo, ya quedó. 👍",
+"TUN TUN TUN!, la base de datos de virus ha sido actualizada. 📢",
+"Ahora sí puedo dormir tranquilo. 😌",
+"¿Sigues acá? Eso es buena señal.",
+"Prometo que este proyecto sí está ordenado.",
+"El botón funciona.",
+"Sí... ese también.",
+"Probé todos. Bueno... casi todos.",
+"recién hice un pull en un proyecto.",
+"npm install sin errores... sospechoso.",
+"¿Te doy un consejo informatico?",
+"Nunca hagas un commit un viernes en la tarde",
+"y menos si es un proyecto de producción. 😅",
+
+
+
+
+];
+
+const glitchChars = "█▓▒░@#$%^&*ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+function TypewriterMessages() {
+  const [phase, setPhase] = useState<"typing" | "glitch" | "question">("typing");
+  const [messageIndex, setMessageIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [glitchText, setGlitchText] = useState("");
+  const [questionText, setQuestionText] = useState("");
+
+  useEffect(() => {
+    if (phase !== "typing") return;
+
+    const currentMessage = messages[messageIndex];
+    let timeout: NodeJS.Timeout;
+
+    if (!isDeleting && text === currentMessage) {
+      timeout = setTimeout(() => setIsDeleting(true), 2000);
+    } else if (isDeleting && text === "") {
+      setIsDeleting(false);
+      if (messageIndex === messages.length - 1) {
+        setPhase("glitch");
+      } else {
+        setMessageIndex((prev) => prev + 1);
+      }
+    } else {
+      timeout = setTimeout(
+        () => {
+          setText(
+            isDeleting
+              ? currentMessage.substring(0, text.length - 1)
+              : currentMessage.substring(0, text.length + 1)
+          );
+        },
+        isDeleting ? 30 : 60
+      );
+    }
+
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, messageIndex, phase]);
+
+  useEffect(() => {
+    if (phase !== "glitch") return;
+
+    let count = 0;
+    const interval = setInterval(() => {
+      const len = 25 + Math.floor(Math.random() * 15);
+      let result = "";
+      for (let i = 0; i < len; i++) {
+        result += glitchChars[Math.floor(Math.random() * glitchChars.length)];
+      }
+      setGlitchText(result);
+      count++;
+      if (count >= 25) {
+        clearInterval(interval);
+        setPhase("question");
+      }
+    }, 70);
+
+    return () => clearInterval(interval);
+  }, [phase]);
+
+  useEffect(() => {
+    if (phase !== "question") return;
+
+    const msg = "¿Qué fue eso? 😳";
+    let i = 0;
+    const interval = setInterval(() => {
+      setQuestionText(msg.substring(0, i + 1));
+      i++;
+      if (i >= msg.length) {
+        clearInterval(interval);
+        setTimeout(() => {
+          setPhase("typing");
+          setMessageIndex(0);
+          setText("");
+          setGlitchText("");
+          setQuestionText("");
+        }, 2500);
+      }
+    }, 60);
+
+    return () => clearInterval(interval);
+  }, [phase]);
+
+  if (phase === "glitch") {
+    return (
+      <div className="relative bg-black border border-green-500/50 rounded-2xl px-6 py-3 mb-6 inline-block shadow-lg shadow-green-500/20">
+        <p className="text-green-400 font-mono text-sm md:text-base">
+          {glitchText}
+        </p>
+        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-black border-b border-r border-green-500/50 rotate-45" />
+      </div>
+    );
+  }
+
+  if (phase === "question") {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="relative bg-card-bg border border-card-border rounded-2xl px-6 py-3 mb-6 inline-block shadow-sm"
+      >
+         <p className="text-sm md:text-base text-foreground min-h-[1.5em]">
+      {questionText}
+      <span className="animate-pulse text-accent">|</span>
+        </p>
+        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-card-bg border-b border-r border-card-border rotate-45" />
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.3 }}
+      className="relative bg-card-bg border border-card-border rounded-2xl px-6 py-3 mb-6 inline-block shadow-sm"
+    >
+      <p className="text-sm md:text-base text-foreground min-h-[1.5em]">
+        {text}
+        <span className="animate-pulse text-accent">|</span>
+      </p>
+      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-card-bg border-b border-r border-card-border rotate-45" />
+    </motion.div>
+  );
+}
 
 export default function Hero() {
   return (
@@ -10,17 +180,18 @@ export default function Hero() {
       className="min-h-screen flex items-center justify-center px-6 pt-20"
     >
       <div className="max-w-4xl mx-auto text-center">
+        <TypewriterMessages />
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-section-bg border-2 border-card-border flex items-center justify-center text-4xl font-bold text-accent">
-            MN
-          </div>
-          {/* Para usar tu foto, reemplaza el div de arriba por:
-          <img src="/foto-perfil.jpg" alt="Matías Navia" className="w-32 h-32 mx-auto mb-8 rounded-full object-cover border-2 border-card-border" />
-          */}
+          <img
+            src="/icon/1bb29497-6e27-4abf-b62a-71245509ed5f.jpg"
+            alt="Matías Navia"
+            className="w-32 h-32 mx-auto mb-8 rounded-full object-cover border-2 border-card-border"
+          />
         </motion.div>
 
         <motion.h1
@@ -65,12 +236,6 @@ export default function Hero() {
           >
             Ver Proyectos
           </a>
-          <a
-            href="#contacto"
-            className="px-6 py-3 border border-card-border rounded-lg hover:bg-section-bg transition-colors font-medium"
-          >
-            Contacto
-          </a>
         </motion.div>
 
         <motion.div
@@ -86,7 +251,7 @@ export default function Hero() {
             className="text-muted hover:text-foreground transition-colors"
             aria-label="GitHub"
           >
-            <Code size={22} />
+            <FaGithub size={22} />
           </a>
           <a
             href="https://linkedin.com/in/matías-navia-barrientos/"
@@ -95,7 +260,7 @@ export default function Hero() {
             className="text-muted hover:text-foreground transition-colors"
             aria-label="LinkedIn"
           >
-            <Link size={22} />
+            <FaLinkedin size={22} />
           </a>
           <a
             href="mailto:matinavia.063@gmail.com"

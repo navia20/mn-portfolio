@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: "Matías Navia | Ingeniería Civil en Computación",
   description:
     "Portfolio de Matías Andrés Navia Barrientos. Estudiante de Ingeniería Civil en Computación e Informática.",
+  icons: {
+    icon: "/logo/5.png",
+  },
 };
 
 export default function RootLayout({

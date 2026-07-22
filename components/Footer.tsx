@@ -3,9 +3,16 @@ export default function Footer() {
     <footer className="py-8 px-6 border-t border-card-border">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-sm text-muted">
-          © {new Date().getFullYear()} Matías Andrés Navia Barrientos. Todos los derechos reservados.
+          © {new Date().getFullYear()} Matías Andrés Navia Barrientos
         </p>
         <div className="flex items-center gap-6">
+          <a
+            href="/cv/CV_MNB_2026.pdf"
+            download
+            className="text-sm text-muted hover:text-foreground transition-colors"
+          >
+            Descargar CV
+          </a>
           <a
             href="https://github.com/navia20"
             target="_blank"

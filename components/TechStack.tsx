@@ -25,8 +25,10 @@ import {
   SiGo,
   SiJavascript,
   SiSharp,
+  SiGraphql,
+  SiOpenapiinitiative,
 } from "react-icons/si";
-import { FaJava } from "react-icons/fa";
+import { FaJava, FaChartBar } from "react-icons/fa";
 
 const categories = [
   {
@@ -65,6 +67,9 @@ const categories = [
       { name: "Kubernetes", icon: SiKubernetes, color: "#326CE5" },
       { name: "Vercel", icon: SiVercel, color: "#000000" },
       { name: "Railway", icon: SiRailway, color: "#0B0D0E" },
+      { name: "API REST", icon: SiOpenapiinitiative, color: "#6BA539" },
+      { name: "GraphQL", icon: SiGraphql, color: "#E10098" },
+      { name: "Power BI", icon: FaChartBar, color: "#F2C811" },
     ],
   },
 ];

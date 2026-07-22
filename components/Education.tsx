@@ -11,6 +11,7 @@ const education = [
     period: "2021 – Presente",
     description:
       "Estudiante de 5to año. Formación en desarrollo de software, algoritmos, bases de datos, redes y gestión de proyectos tecnológicos.",
+    logo: "/universities/ucn-escudo-full-color.png",
   },
   {
     degree: "Intercambio Estudiantil — Ingeniería en Computación",
@@ -18,6 +19,7 @@ const education = [
     period: "2025",
     description:
       "Programa de intercambio en el segundo semestre de 2025 en Montevideo, Uruguay. Ampliación de perspectiva académica y experiencia internacional.",
+    logo: "/universities/logo-udelar.webp",
   },
 ];
 
@@ -62,7 +64,16 @@ export default function Education() {
                     <Calendar size={14} />
                     <span>{item.period}</span>
                   </div>
-                  <h3 className="text-lg font-semibold mb-1">{item.degree}</h3>
+                  <div className="flex items-center gap-3 mb-1">
+                    {item.logo && (
+                      <img
+                        src={item.logo}
+                        alt={item.institution}
+                        className="w-10 h-10 object-contain"
+                      />
+                    )}
+                    <h3 className="text-lg font-semibold">{item.degree}</h3>
+                  </div>
                   <p className="text-accent text-sm font-medium mb-3">
                     {item.institution}
                   </p>
