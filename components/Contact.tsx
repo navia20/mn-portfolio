@@ -5,6 +5,8 @@ import { useRef } from "react";
 import { Mail, FileDown } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
+const basePath = process.env.NODE_ENV === "production" ? "/mn-portfolio" : "";
+
 const contactLinks = [
   {
     icon: Mail,
@@ -84,7 +86,7 @@ export default function Contact() {
           className="text-center"
         >
           <a
-            href="/cv/CV_MNB_2026.pdf"
+            href={`${basePath}/cv/CV_MNB_2026.pdf`}
             download
             className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-lg hover:bg-accent-light transition-colors font-medium"
           >

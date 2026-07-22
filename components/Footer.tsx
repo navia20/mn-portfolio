@@ -1,3 +1,5 @@
+const basePath = process.env.NODE_ENV === "production" ? "/mn-portfolio" : "";
+
 export default function Footer() {
   return (
     <footer className="py-8 px-6 border-t border-card-border">
@@ -7,7 +9,7 @@ export default function Footer() {
         </p>
         <div className="flex items-center gap-6">
           <a
-            href="/cv/CV_MNB_2026.pdf"
+            href={`${basePath}/cv/CV_MNB_2026.pdf`}
             download
             className="text-sm text-muted hover:text-foreground transition-colors"
           >
