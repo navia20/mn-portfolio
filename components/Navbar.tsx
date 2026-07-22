@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -19,16 +19,12 @@ const navLinks = [
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
-  const mountedRef = useRef(false);
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    if (!mountedRef.current) {
-      mountedRef.current = true;
-      setMounted(true);
-    }
+    setMounted(true);
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -41,7 +37,7 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-card-border shadow-sm"
+          ? "bg-background/80 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       }`}
     >
@@ -95,7 +91,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-md border-b border-card-border overflow-hidden"
+            className="md:hidden bg-background/95 backdrop-blur-md overflow-hidden"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
