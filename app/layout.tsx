@@ -13,12 +13,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const isProd = process.env.NODE_ENV === "production";
+
 export const metadata: Metadata = {
   title: "Matías Navia | Ingeniería Civil en Computación",
   description:
     "Portfolio de Matías Andrés Navia Barrientos. Estudiante de Ingeniería Civil en Computación e Informática.",
   icons: {
-    icon: "/logo/5.png",
+    icon: isProd ? "/mn-portfolio/logo/5.png" : "/logo/5.png",
   },
 };
 
