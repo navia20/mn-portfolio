@@ -5,6 +5,8 @@ import { useTheme } from "next-themes";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const basePath = process.env.NODE_ENV === "production" ? "/mn-portfolio" : "";
+
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
   { href: "#sobre-mi", label: "Sobre Mí" },
@@ -47,7 +49,7 @@ export default function Navbar() {
         <a href="#inicio" className="flex items-center">
           {mounted && (
             <img
-              src={theme === "dark" ? "/logo/5.png" : "/logo/6.png"}
+              src={theme === "dark" ? `${basePath}/logo/5.png` : `${basePath}/logo/6.png`}
               alt="MN"
               className="h-13 w-auto"
             />

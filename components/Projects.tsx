@@ -4,6 +4,8 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
+const basePath = process.env.NODE_ENV === "production" ? "/mn-portfolio" : "";
+
 const projects = [
   {
     title: "Solicitar Licencia",
@@ -15,7 +17,7 @@ const projects = [
       "Sistema de aprobaciones y gestión de equipos",
       "Generación de reportes y seguimiento de licencias",
     ],
-    image: "/projects/project-1/solicitar-licencia.png",
+    image: `${basePath}/projects/project-1/solicitar-licencia.png`,
     tech: ["Next.js", "Ruby on Rails", "Railway", "React", "API REST", "Docker", "TypeScript", "PostgreSQL",],
   },
   {
@@ -28,7 +30,7 @@ const projects = [
       "Optimización de la lógica operativa del sistema y reducción de tiempos de emisión de documentación técnica y comercial"
       ,
     ],
-    image: "/projects/project-2/registros-cotizaciones.png",
+    image: `${basePath}/projects/project-2/registros-cotizaciones.png`,
     tech: ["Next.js", "React", "API REST", "GraphQL", "TypeScript", "PostgreSQL", "mongodb"],
   },
   {
@@ -42,7 +44,7 @@ const projects = [
       "Generación de reportes y análisis de datos para la toma de decisiones estratégicas",
 
     ],
-    image: "/projects/project-3/registro-tickets.png",
+    image: `${basePath}/projects/project-3/registro-tickets.png`,
     tech: ["React", "Node.js", "TypeScript", "API REST", "vercel", "PostgreSQL"],
   },
 ];

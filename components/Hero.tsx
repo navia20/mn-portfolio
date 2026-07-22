@@ -5,6 +5,8 @@ import { ArrowDown, Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
+const basePath = process.env.NODE_ENV === "production" ? "/mn-portfolio" : "";
+
 const messages = [
 "¡Holaaa, bienvenido a mi portafolio! 👋",
 "¿Te gusta? 😄",
@@ -188,7 +190,7 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
         >
           <img
-            src="/icon/1bb29497-6e27-4abf-b62a-71245509ed5f.jpg"
+            src={`${basePath}/icon/1bb29497-6e27-4abf-b62a-71245509ed5f.jpg`}
             alt="Matías Navia"
             className="w-32 h-32 mx-auto mb-8 rounded-full object-cover border-2 border-card-border"
           />

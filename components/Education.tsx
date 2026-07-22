@@ -4,6 +4,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { GraduationCap, Calendar } from "lucide-react";
 
+const basePath = process.env.NODE_ENV === "production" ? "/mn-portfolio" : "";
+
 const education = [
   {
     degree: "Ingeniería Civil en Computación e Informática",
@@ -11,7 +13,7 @@ const education = [
     period: "2021 – Presente",
     description:
       "Estudiante de 5to año. Formación en desarrollo de software, algoritmos, bases de datos, redes y gestión de proyectos tecnológicos.",
-    logo: "/universities/ucn-escudo-full-color.png",
+    logo: `${basePath}/universities/ucn-escudo-full-color.png`,
   },
   {
     degree: "Intercambio Estudiantil — Ingeniería en Computación",
@@ -19,7 +21,7 @@ const education = [
     period: "2025",
     description:
       "Programa de intercambio en el segundo semestre de 2025 en Montevideo, Uruguay. Ampliación de perspectiva académica y experiencia internacional.",
-    logo: "/universities/logo-udelar.webp",
+    logo: `${basePath}/universities/logo-udelar.webp`,
   },
 ];
 
