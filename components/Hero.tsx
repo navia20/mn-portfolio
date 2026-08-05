@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Mail } from "lucide-react";
+import { ArrowDown, Mail, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
@@ -218,9 +218,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl md:text-2xl text-muted mb-8"
+          className="text-xl md:text-2xl text-muted mb-8 flex items-center justify-center gap-2"
         >
-          Ingeniería Civil en Computación e Informática
+          Desarrollador Full Stack · <MapPin size={18} /> Coquimbo, Chile
         </motion.p>
 
         <motion.p
@@ -229,9 +229,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-muted max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Estudiante de 5to año en la Universidad Católica del Norte. Apasionado
-          por el desarrollo de software, la resolución creativa de problemas y las
-          tecnologías modernas.
+          Estudiante de Ingeniería en la UCN. Entregando aplicativos y
+          soluciones web, especializado en TypeScript, React, NestJS y otras
+          herramientas de desarrollo.
         </motion.p>
 
         <motion.div

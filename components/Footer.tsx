@@ -9,13 +9,6 @@ export default function Footer() {
         </p>
         <div className="flex items-center gap-6">
           <a
-            href={`${basePath}/cv/CV_MNB_2026.pdf`}
-            download
-            className="text-sm text-muted hover:text-foreground transition-colors"
-          >
-            Descargar CV
-          </a>
-          <a
             href="https://github.com/navia20"
             target="_blank"
             rel="noopener noreferrer"

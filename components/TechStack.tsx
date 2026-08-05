@@ -27,6 +27,8 @@ import {
   SiSharp,
   SiGraphql,
   SiOpenapiinitiative,
+  SiOctanerender,
+  SiRender,
 } from "react-icons/si";
 import { FaJava, FaChartBar } from "react-icons/fa";
 
@@ -38,7 +40,6 @@ const categories = [
       { name: "Java", icon: FaJava, color: "#ED8B00" },
       { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
       { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-      { name: "C", icon: SiC, color: "#A8B9CC" },
       { name: "C++", icon: SiCplusplus, color: "#00599C" },
       { name: "C#", icon: SiSharp, color: "#239120" },
       { name: "Go", icon: SiGo, color: "#00ADD8" },
@@ -70,6 +71,7 @@ const categories = [
       { name: "API REST", icon: SiOpenapiinitiative, color: "#6BA539" },
       { name: "GraphQL", icon: SiGraphql, color: "#E10098" },
       { name: "Power BI", icon: FaChartBar, color: "#F2C811" },
+      { name: "Render", icon: SiRender, color: "#c7c9c9" },
     ],
   },
 ];
