@@ -220,7 +220,15 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-xl md:text-2xl text-muted mb-8 flex items-center justify-center gap-2"
         >
-          Desarrollador Full Stack · <MapPin size={18} /> Coquimbo, Chile
+          Desarrollador Full Stack 
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-xl md:text-2xl text-muted mb-8 flex items-center justify-center gap-2"
+        >
+       <MapPin size={18} /> Coquimbo, Chile
         </motion.p>
 
         <motion.p
