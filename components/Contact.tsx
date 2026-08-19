@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Mail, FileDown } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { QRCodeSVG } from "qrcode.react";
 
 const basePath = process.env.NODE_ENV === "production" ? "/mn-portfolio" : "";
 
@@ -83,7 +84,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center"
+          className="text-center mb-10"
         >
           <a
             href={`${basePath}/cv/CV_MNB_2026.pdf`}
@@ -93,6 +94,24 @@ export default function Contact() {
             <FileDown size={18} />
             Descargar CV
           </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="flex flex-col items-center gap-3"
+        >
+          <span className="text-muted text-sm">Escanea para abrir el portafolio</span>
+          <div className="p-4 bg-white rounded-xl border border-card-border">
+            <QRCodeSVG
+              value="https://navia20.github.io/mn-portfolio/"
+              size={160}
+              bgColor="#ffffff"
+              fgColor="#000000"
+              level="M"
+            />
+          </div>
         </motion.div>
       </div>
     </section>
